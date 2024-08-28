@@ -1,0 +1,27 @@
+#To explain this. This automod rule prevents users from having the same name as the names listed below. Leave `false` if you dont want to use it.
+owner:
+          enabled: false
+          triggers:
+          - match_words:
+              words:
+                - 'abbie'
+                - '莫名其妙'
+          overrides:
+              level: '>=100'
+              case_sensitive: false
+              match_messages: false
+              match_embeds: false
+              match_visible_names: true
+              only_full_words: true
+              loose_matching: false
+              loose_matching_threshold: 50
+          actions:
+            clean: false
+            log: true
+            reply:
+              text:
+                content: "<@{user.id}> You can't have the same name as Server Owner"
+              auto_delete: 10s
+            change_nickname:
+              name: >-
+                Change your name
