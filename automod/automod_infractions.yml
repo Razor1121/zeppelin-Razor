@@ -1,0 +1,13 @@
+ # An example automod rule that adds automod infraction points
+        some_infraction:
+          triggers:
+            - match_words:
+                words: [
+                  'poopoo head', 'hmu for hacking services', 'dumbass'
+                  ]
+          actions:
+            clean: true
+            reply: "You're not allowed to say that here."
+            add_to_counter:
+              counter: "automod_infractions"
+              amount: 25 # This infraction adds 25 automod infraction points. Depending on the automod trip limit you have set, you may want to lower this.
