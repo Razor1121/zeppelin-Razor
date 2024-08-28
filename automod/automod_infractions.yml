@@ -11,3 +11,17 @@
             add_to_counter:
               counter: "automod_infractions"
               amount: 25 # This infraction adds 25 automod infraction points. Depending on the automod trip limit you have set, you may want to lower this.
+
+# An example rule that is triggered when the user accumulates too many automod infraction points
+        automute_on_too_many_infractions:
+          triggers:
+            - counter_trigger:
+                counter: "automod_infractions"
+                trigger: "too_many_infractions"
+          actions:
+            mute:
+              reason: "You have been muted for tripping too many automod filters"
+              remove_roles_on_mute: true
+              restore_roles_on_mute: true
+
+#These two rules go together^^^^
