@@ -1,0 +1,11 @@
+newjoins:
+          enabled: false
+          triggers:
+          - member_join:
+              only_new: true
+              new_threshold: 1h
+          actions:
+              alert:
+                channel: "1009623181717414053" #automod
+                text: >-
+                  :red_circle: <@{user.id}> is a new account! Be wary
