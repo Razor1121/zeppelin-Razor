@@ -3,7 +3,7 @@
 prefix: '-' # Put whatever you want here.
 
 levels: # Insert the role ID in the quotations, then set the level of that role that you want. Can be anything from 1-9999. Can have as many as you want.
-  "role_id": '>100' 
+  "role_id": 100
 
 plugins: 
   post:
