@@ -9,3 +9,13 @@ newjoins:
                 channel: "1009623181717414053" #automod
                 text: >-
                   :red_circle: <@{user.id}> is a new account! Be wary
+
+autokick:
+          enabled: true
+          triggers:
+          - member_join:
+              only_new: true
+              new_threshold: 1h
+          actions:
+            kick:
+              reason: "Your account is very new and is marked as suspcious so it got kicked, If you think this is a mistake. Please try joining again in some time (like 30 minutes or so?) at https://discord.gg/invitelink
