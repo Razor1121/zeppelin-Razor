@@ -1,0 +1,31 @@
+#Scam link Section  
+        filter_suspected_scamlinks:
+          enabled: true
+          triggers:
+            - match_links:
+                phisherman:
+                  include_suspected: true
+          actions:
+            alert:
+              channel: '1235110905038110731'
+              text: |-
+                    Suspicious link removed from <@!{user.id}> (**{user.username}#{user.discriminator}**, `{user.id}`): {matchSummary}
+        filter_verified_scamlinks:
+          enabled: true
+          triggers:
+            - match_links:
+                phisherman:
+                  include_verified: true
+          actions:
+            clean: true
+            warn: 
+              reason: "Suspicious Link"
+              postInCaseLog: true
+          ban:
+              reason: "Scam link"
+              postInCaseLog: true
+              alert:
+              channel: "1235110905038110731"
+              text: |-
+                    Verified scam link removed from <@!{user.id}> (**{user.username}#{user.discriminator}**, `{user.id}`) **AUTOBANNED**: {matchSummary}
+  
