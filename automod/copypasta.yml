@@ -1,0 +1,26 @@
+#Check out Naviking's spreadsheet if you need more. https://docs.google.com/spreadsheets/d/1pUGVAARMBadmNqQW6cPKhSaT-uYDgQlRBnlQ9TMDXTI/edit?gid=1765186378#gid=1765186378
+copypasta: #copy paste spam
+          enabled: true
+          triggers:
+            - match_regex:
+                patterns: 
+                  - "[⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿]"
+                  - "[░▐▌█▀▄]"
+                  - \# - "^(\\s*\\|\\|.+?\\|\\|\\s*)+$" 
+                  - (?:[\u2500-\u25FF\u2800-\u28FF]\s*){4,}
+                  - '▐▀█▀▌'
+                  - ⠟⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
+                  - ඞ
+                  - ████
+                  - ⣿⣿⣿
+                case_sensitive: false
+                normalize: true
+                strip_markdown: true
+                match_messages: true
+                match_embeds: true
+          actions:
+            log: true
+            reply:
+              text: 
+                content: "<@{user.id}> No copypasta spam pls"
+              auto_delete: 5s
