@@ -1,0 +1,56 @@
+#Leave false if you'd rather use discord's native automod. Or change to `true` to enable this section!
+automod:
+    config:
+      rules:
+        badwords: #badwords
+          enabled: false
+          triggers:
+          - match_words:
+              words: [
+                "﷽","﷽", "|", "⣿",
+                "pornhub", "seggz", "dildo", "edp445", "卍", "simping", "slmp", "slmps",
+                "simp", "s1mp", "simps", "s1mps", "biitch", "tards", "Fäg", "sex", 
+                "virgin", "ræpe", "sexual", "r*pist", "r*apist", "r*pe",
+                "superstraight", "bitch", "bitches", "b1tch", "b1tches",
+                "milf", "milfs", "xp grind", "raped", "Cum", "Rape", "kys", "kill yourself",
+                "cumming", "autist", "raping", "porn", "pornography", "anal", "cunt", "cnut",
+                "pussy", "cock", "cocks", "c0ck", "hentai", "shemale", "pedophile", "pedo", 
+                "nazi", "porno", "puta", "semen", "slut", "twat", "wank", "loli", "rape",
+                "rapist", "lolis", "tits", "boob", "boobies", "tit", "nude", "nudes", "vagina",
+                "retard", "braindead", "hoe", "libtard", "titty", "porn", "thot", 
+                "sperg", "dick", "hoes", "retrad", "penis", "whore", "suicide", "kill myself", 
+                "cuck", "blowjob", "raping", "boobs", "retarded", "incel", "retards", "incel",
+                "cunts", "tarded", "discord.gift", "lolicon", "loli","⣠", "⡖","⠋", "⠉","⠛",
+                "testicals","卐", "ching chong", "Fag", "@everyone", "hmu", "hacking services"
+                ]
+              case_sensitive: true
+              only_full_words: true
+              normalize: true
+              loose_matching: false
+              loose_matching_threshold: 0
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: true
+          - match_regex:
+              patterns:
+                #- 'fuck'
+                - 'afak'
+                - 'n[il1]+g{2,}(er|a)' #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*[e3][\\s.\\-]*r" #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*a" #nigga
+                - "f[\\s.\\-]*a[\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*o[\\s.\\-]*[t7]" #faggot
+                - "n[i1!lℹ️][g9]{2,}[a4@∆Д🅰️]"
+                - "n[i1!lℹ️][g9]{2,}[e3£][r®️]"
+                - "[r®️][e3£][t7✝️][a4@∆Д🅰️][r®️]d"
+              normalize: true
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: true
+          actions:
+            clean: true
+            reply:
+              text: 
+                content: "<@{user.id}> Whoa :p"
+              auto_delete: 3s
