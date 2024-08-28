@@ -1,0 +1,22 @@
+nonenglish: #non english filter
+          enabled: false #disabled for now because it affects kaomojis and makes it weird (tanewaa and her interesting explanations)
+          affects_bots: false
+          triggers:
+          - match_regex:
+              patterns:
+                - "[\u0600-\u06FF]+" # Arabic
+                - "(\u0196|\u0214|\u0220|\u0223|\u0228|\u0246|\u0252)+" # German
+                - "(\u0192|\u0194|\u0196|\u0198|\u0199|[\u0200-\u0204]|\u0206|\u0207|\u0210|\u0212|\u0140|\u0217|\u0219|\u0220|\u0224|\u0226|\u0228|\u0230|\u0231|[\u0232-\u0236]|\u0238|\u0239|\u0244|\u0244|\u0156|\u0249|\u0251|\u0252)+" # French/Italian
+                - "(\u0161|\u0191|\u0193|\u0201|\u0205|\u0209|\u0211|\u0218|\u0220|\u0225|\u0233|\u0237|\u0241|\u0243|\u0250|\u0252)+" #Spanish
+                - "[\u4e00-\u9faf\u3400-\u4dbf]+" # Chinese
+                - "[\u0400-\u04FF]+" # Cryllic (Russian)
+                - "[\u0370-\u03FF]+" # Greek
+                - "[\u1F00-\u1FFF]+" # Greek Extended
+                - "[\u05BE-\u05F4]+" # Hebrew
+                - "(?![ツ])[\u30A0-\u30FF]+" # Japanese (Hiragana)
+                - "(?![ツ])[\u30A0-\u30FF]+" # Japanese (Kana)
+          actions:
+            clean: true
+            reply:
+              text:
+                content: "<@{user.id}> Lets try to keep it english only"
