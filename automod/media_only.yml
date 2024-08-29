@@ -1,0 +1,59 @@
+#Created by Metal6
+
+automod:
+    config:
+      rules:
+      
+      
+        # [...]
+        
+        # This should be the last of your rules due to automod rule processing order and how this works
+        
+        media_detect:
+          enabled: false # Disabled by default, you should enable this ONLY for your media-only channel
+          triggers:
+            - match_mime_type: # These match on the actual MIME type of the file (the data content type, regardless of what the file extension is)
+                mime_type_blacklist:
+                  - 'image/png'
+                  - 'image/jpeg'
+                  - 'image/gif'
+                  - 'video/mp4'
+                  - 'video/quicktime'
+                  - 'image/webp'
+                  - 'video/webm'
+                  - 'image/jfif'
+                  - 'video/x-msvideo'
+                whitelist_enabled: false
+                blacklist_enabled: true
+            - match_regex:
+                patterns:
+                  - 'http?s:\/\/\S+\.(gif|jpe?g|png|webp|mov|m4a|mp4|webm)'
+          actions:
+            log: false
+# We don't want any actions to be taken, only to stop the processing of automod actions further down the chain, so our "delete_everything" rule doesn't run if there is media in the message
+
+      
+  
+# This rule will delete anything that it's "enabled" for, and that passed our "media_detect" rule
+        delete_everything:
+          enabled: false  # Disabled by default, you should enable this ONLY for your media-only channel
+          triggers:
+           - match_regex:
+              patterns: 
+                - '[^]' # "Match any piece of text"
+          actions:
+            clean: true
+            reply:
+              text: "Only media is allowed in this channel!"
+              inline: true
+              auto_delete: 10s
+            log: false
+
+    overrides:
+      - channel: "1234567889" # your media-only channel
+        config:
+          rules:
+            media_detect:
+              enabled: true
+            delete_everything:
+              enabled: true
